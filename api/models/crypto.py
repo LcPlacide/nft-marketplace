@@ -19,8 +19,8 @@ class CryptoModel(BaseModel):
             "example": {
                     "acronym": "BTC",
                     "name": "Bitcoin", 
-                    "price": 37075.08, 
-                    "date": "2021-09-30 16:47:24.206061",
-                    "currency": "€"
+                    "price": 37075.08,
+                    "currency": "€",
+                    "date": "2021-09-30 16:47:24.206061"
             }
         }

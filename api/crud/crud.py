@@ -45,13 +45,12 @@ def insert_nft(database: str, nft):
 
     # Link with the collection
     collection = database['nfts']
-
-    # Check if NFT is already in database
-    if collection.find_one({'link': nft['link']}) is not None:
-        return False
-    
-    # Add the NFT in database
-    collection.insert_one(nft)
+ 
+    # Add or update the NFT in database
+    _filter = {"contract_address":nft["contract_address"], "token_id":nft["token_id"]}
+    if collection.find_one(_filter) is not None:
+        del nft["_id"]
+    collection.update_one(_filter, {"$set":nft}, upsert=True)
     
     return True
 
@@ -98,7 +97,10 @@ def insert_crypto(database: str, crypto):
     # Link with the collection
     collection = database['cryptos']
     
-    # Add the NFT in database
-    collection.insert_one(crypto)
+    # Add or update the crypto in database
+    _filter = {"acronym":crypto["acronym"], "name":crypto["name"]}
+    if collection.find_one(_filter) is not None:
+        del crypto["_id"]
+    collection.update_one(_filter, {"$set":crypto}, upsert=True)
     
     return True

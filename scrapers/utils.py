@@ -42,7 +42,6 @@ def try_find_elements_by_xpath(browser, xpath, wait=10, only_one=True, get='text
 
 
 def process_data(nft):
-    del nft['id']
     for key in nft.keys():
         if key=='date': nft['date'] = str(datetime.now())
         elif nft[key]==None: nft[key]='N/A'
@@ -60,7 +59,7 @@ def add_to_db(_dict, url, headers):
 
 def parse_nft(browser):
   nft = {
-    "id": try_find_elements_by_xpath(browser, "//div[@class='css-24c0g9']"),
+    "token_id": try_find_elements_by_xpath(browser, "//div[@class='css-24c0g9']"),
     "name": try_find_elements_by_xpath(browser, "//div[@class='css-1t8ijp6']/h4"),
     "image": try_find_elements_by_xpath(browser, '//div[@type="img"]/*/img | //div[@type="img"]/*/video', get='src'),
     "amount": try_find_elements_by_xpath(browser, '//div[@class="css-1nwnm8x"]/*'),
