@@ -99,8 +99,11 @@ def insert_crypto(database: str, crypto):
     
     # Add or update the crypto in database
     _filter = {"acronym":crypto["acronym"], "name":crypto["name"]}
+    to_push = set(["date", "price", "currency"])
     if collection.find_one(_filter) is not None:
         del crypto["_id"]
-    collection.update_one(_filter, {"$set":crypto}, upsert=True)
+    update = {"$set": dict([(k,crypto[k]) for k in set(crypto.keys())-to_push]),
+              "$push": dict([(k,crypto[k]) for k in to_push])}
+    collection.update_one(_filter, update, upsert=True)
     
     return True
