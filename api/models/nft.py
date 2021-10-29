@@ -12,7 +12,6 @@ class NFTModel(BaseModel):
     creator: str = Field(...)
     date: str = Field(...)
     description: str = Field(...)
-    token_id: str = Field(...)
     contract_address: str = Field(...)
     link: str = Field(...)
 
@@ -30,7 +29,6 @@ class NFTModel(BaseModel):
                 "date": "March 17, 2022 at 1:46pm CEST",
                 "description": "Armor found within Neon District. \nA Neon District: Season One game item, playable on https://portal.neondistrict.io.\nNeon District is a free-to-play cyberpunk role-playing game. Collect characters and gear, craft and level up teams, and battle against other players through competitive multiplayer and in turn-based combat.",
                 "contract_address": "0x7227e371540cf7b8e512544ba6871472031f3335",
-                "token_id": "0123455",
                 "link": "https://opensea.io/assets/matic/0x7227e371540cf7b8e512544ba6871472031f3335/158456332462567099841992013138"
             }
         }
