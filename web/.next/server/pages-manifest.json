@@ -2,5 +2,13 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/marketplace": "pages/marketplace.js"
+  "/marketplace": "pages/marketplace.js",
+  "/api/nfts": "pages/api/nfts.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/wall": "pages/wall.js",
+  "/api/comment_get": "pages/api/comment_get.js",
+  "/nft/[id]": "pages/nft/[id].js",
+  "/api/nft": "pages/api/nft.js",
+  "/api/crypto": "pages/api/crypto.js"
 }
